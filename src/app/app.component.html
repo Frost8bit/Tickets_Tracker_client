@@ -1,0 +1,48 @@
+<div id="header" class="container flexbox">
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark toolbar" *ngIf="user">
+    <div class="navbar-nav d-flex ">
+            <ul class="topmenu navbar-nav"> 
+            <img class="toolbar img"
+            width="40"
+            alt="Logo"
+            src="../../../assets/img/logo.png"
+          />
+        <li class="nav-item active">
+          <a class="nav-item nav-link active down" routerLink="/"> Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active"> 
+         <a class="nav-item nav-link active down" routerLink="/tickets_list-admin" *ngIf="isAdmin"> All Tickets <span class="sr-only">(current)</span></a>  
+        </li>
+        <li class="nav-item active"> 
+            <a class="nav-item nav-link active down" routerLink="/my-tickets" *ngIf="isAdmin"> My Own Tickets <span class="sr-only">(current) </span></a>
+        </li>
+        <li class="nav-item active"> 
+          <a class="nav-item nav-link active down" routerLink="/tickets_list" *ngIf="isUser"> My Own Tickets <span class="sr-only">(current) </span></a>
+      </li>
+        <li class="nav-item active"> 
+             <a class="nav-item nav-link active down" routerLink="/companies" *ngIf="isAdmin"> Companies <span class="sr-only">(current) </span></a>
+        </li>     
+        <li class="nav-item active"> 
+          <a class="nav-item nav-link active down" routerLink="/users" *ngIf="isAdmin"> Users <span class="sr-only">(current) </span></a>
+         </li>     
+        <li class="nav-item active"> 
+          <a class="nav-item nav-link active"> Current user: {{user.name}} <img class="toolbar img"
+            width="25"
+            class
+            src="../../../assets/img/user.png"/>  </a>
+            <ul class="submenu">
+                    <a class="nav-item nav-link"  style = "color:blue" (click)="logout()" routerLink="/login">Logout <span class="sr-only">(current)</span></a>
+                  </ul>
+               </li>    
+            </ul> 
+      </div>   
+</nav>
+</div>
+
+
+<!-- main app container -->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
